@@ -33,7 +33,7 @@ class ServiceRegister extends Command {
      */
     public function handle() {
         try {
-            $consulUrls = explode(",", config());
+            $consulUrls = config('consul.base_uris');
             $services = config('consul.services');
 
             foreach ($consulUrls as $url) {

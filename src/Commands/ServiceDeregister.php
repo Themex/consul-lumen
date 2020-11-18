@@ -33,7 +33,7 @@ class ServiceDeregister extends Command {
      */
     public function handle() {
         try {
-            $consulUrls = explode(',', config('consul.base_uris'));
+            $consulUrls = config('consul.base_uris');
 
             foreach ($consulUrls as $url) {
                 $this->comment("Consul HTTP Service:");

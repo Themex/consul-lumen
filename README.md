@@ -1,4 +1,4 @@
-#[Lumen](https://lumen.laravel.com) [Consul.io](https://www.consul.io/) Provider
+# [Lumen](https://lumen.laravel.com) [Consul.io](https://www.consul.io/) Provider
 To install composer package in Lumen project:
 
 `composer require themex/consul-lumen`

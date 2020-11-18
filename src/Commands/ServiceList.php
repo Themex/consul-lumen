@@ -36,7 +36,7 @@ class ServiceList extends Command
     public function handle() {
         try {
             $this->comment("Consul HTTP Services:");
-            $consulUrls = explode(",", config('consul.base_uris'));
+            $consulUrls = config('consul.base_uris');
             foreach ($consulUrls as $url) {
                 $this->line(sprintf(" - <info>%s</info>", $url));
                 $this->output->newLine();
@@ -58,11 +58,11 @@ class ServiceList extends Command
 
                 if (empty($services)) {
                     $this->error("No services found");
+                }
 
-                    foreach ($services as $service) {
-                        $this->line(sprintf("- %s", json_encode($service)));
-                        $this->output->newLine();
-                    }
+                foreach ($services as $service) {
+                    $this->line(sprintf("- %s", json_encode($service)));
+                    $this->output->newLine();
                 }
             }
         } catch (\Throwable $exception) {

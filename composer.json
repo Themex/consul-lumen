@@ -4,6 +4,7 @@
   "keywords": ["consul", "lumen"],
   "minimum-stability": "stable",
   "license": "MIT",
+  "version": "0.0.1",
   "autoload": {
     "psr-4": {
         "Themex\\LumenConsul\\": "src/"
