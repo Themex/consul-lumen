@@ -1,0 +1,26 @@
+{
+  "name": "themex/lumen-consul",
+  "description": "Consul Client For Lumen",
+  "keywords": ["consul", "lumen"],
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "themex",
+      "email": "theme@scannergps.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+        "Themex\\LumenConsul\\": "src/"
+    }
+  },
+  "require": {
+    "php": ">=7.2.5",
+    "sensiolabs/consul-php-sdk": "^3.1",
+    "guzzlehttp/guzzle": "^6.0",
+    "laravel/lumen-framework": "^7.0|^8.0",
+    "psr/log": "~1.0",
+    "ext-json": "*"
+  }
+}
