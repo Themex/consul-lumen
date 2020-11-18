@@ -1,15 +1,9 @@
 {
-  "name": "themex/lumen-consul",
+  "name": "themex/consul-lumen",
   "description": "Consul Client For Lumen",
   "keywords": ["consul", "lumen"],
   "minimum-stability": "stable",
   "license": "MIT",
-  "authors": [
-    {
-      "name": "themex",
-      "email": "theme@scannergps.com"
-    }
-  ],
   "autoload": {
     "psr-4": {
         "Themex\\LumenConsul\\": "src/"
