@@ -44,7 +44,13 @@ class Catalog extends Facade
             throw new ConsulException(ucwords($name."BadGateway"), 504);
         }
 
-        return json_decode($service->getBody(), true);
+        $arr = json_decode($service->getBody(), true);
+
+        if (count($arr) < 1) {
+            throw new ConsulException("NoServicesFound", 404);
+        }
+
+        return $arr;
     }
 
     /**
