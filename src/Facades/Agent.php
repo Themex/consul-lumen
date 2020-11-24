@@ -1,5 +1,4 @@
 <?php
-
 namespace Themex\LumenConsul\Facades;
 
 use Illuminate\Support\Facades\Facade;

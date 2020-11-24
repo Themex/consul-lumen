@@ -1,9 +1,7 @@
 <?php
-
-
 namespace Themex\LumenConsul\Facades;
 
-
+use Themex\LumenConsul\Exceptions\ConsulException;
 use Illuminate\Support\Facades\Facade;
 use SensioLabs\Consul\Services\CatalogInterface;
 
@@ -31,5 +29,32 @@ class Catalog extends Facade
     protected static function getFacadeAccessor() : string
     {
         return "consul.service.catalog";
+    }
+
+    /**
+     * Selected service info
+     * @param string $name
+     * @return array
+     * @throws ConsulException
+     */
+    public function getServiceByName(string $name) : array {
+        $service = self::service($name);
+
+        if (200 !== $service->getStatusCode()) {
+            throw new ConsulException(ucwords($name."BadGateway"), 504);
+        }
+
+        return json_decode($service->getBody(), true);
+    }
+
+    /**
+     * Service API endpoint
+     * @param $service
+     * @param $endpoint
+     * @param string $proto
+     * @return string
+     */
+    public function getServiceEndpointUrl($service, $endpoint, $proto = 'http') {
+        return $proto."://{$service['ServiceAddress']}:".$service['ServicePort'].$endpoint;
     }
 }
