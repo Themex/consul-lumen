@@ -60,8 +60,8 @@ class ServiceList extends Command
                     $this->error("No services found");
                 }
 
-                foreach ($services as $service) {
-                    $this->line(sprintf("- %s", json_encode($service)));
+                foreach ($services as $key => $service) {
+                    $this->line(sprintf("- %s : %s", $key, json_encode($service)));
                     $this->output->newLine();
                 }
             }
